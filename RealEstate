@@ -1,0 +1,1300 @@
+import java.io.*;   //input-output package imported
+        import java.util.*; //utility package imported
+        
+        class Flats
+        {
+            private String City;        //City name
+            private String SiteAddr;    //Location or Site Address in the city
+            private String BldgName;   //Building/scheme name 
+            private String FlatNumber;  //Flat number in the building
+            private String Bhk;
+            private String Toilet;      //No.of Toilets
+            private String Bathroom;    //No.of Bathrooms
+            private String Gallery;     //No.of gallery
+            private String Parking;     //Common + individual parking
+            private int Area;           //Built-up area
+            private int Rate;           //Rate Rupees per Square foot
+            private boolean Booked;     //Whether flat is booked
+            private String CustName;    //Custumer Name
+            private String Address;     //Custumer Address
+            private String Phone;       //Custumer Phone Number
+            private int RegAmt;
+            private int StampDuty;       // Stamp Duty Imposed
+            private static int Count;   //No.of Flats created
+        public Flats()  //Default or Non-parameterized constructor
+            {
+                City        = null;
+                SiteAddr    = null;
+                BldgName    = null;
+                FlatNumber  = null;
+                Bhk         = null;
+                Toilet      = null;
+                Bathroom    = null;
+                Gallery     = null;
+                Parking     = null;
+                Area        = 0;
+                Rate        = 0;
+                Booked      = false;
+                CustName    = null;
+                Address     = null;
+                Phone       = null;
+                RegAmt      = 0;
+                StampDuty   = 0;
+                Count       = Count + 1;
+            }
+        
+        public Flats (String stC, String stSA, String stBN, String stFN, String stBhk, String stT, String stB, String stG, String stP, int intA, int intR)
+            {
+                City        = stC;
+                SiteAddr    = stSA;
+                BldgName    = stBN;
+                FlatNumber  = stFN;
+                Bhk         = stBhk;
+                Toilet      = stT;
+                Bathroom    = stB;
+                Gallery     = stG;
+                Parking     = stP;
+                Area        = intA;
+                Rate        = intR;
+                Booked      = false;
+                CustName    = null;
+                Address     = null;
+                Phone       = null;
+                RegAmt      = 0;
+                StampDuty   = 0;
+                Count       = Count + 1;        
+            }
+        
+            public void ShowFlat()
+            {
+                Formatter fmt = new Formatter();
+                System.out.println("City          : " + City);
+                System.out.println("Site Address  : " + SiteAddr);
+                System.out.println("Building Name : " + BldgName);
+                System.out.println("Flat Number   : " + FlatNumber);
+                System.out.println("Parking       : " + Parking);
+                System.out.println("Carpet Area   : " + Area);
+                System.out.println("Rate Rs./Sq.Ft: " + Rate);
+                System.out.println("Cost of Flat:Rs " + fmt.format("%,.2f", (float)(Area*Rate)));
+                System.out.print("Flat Booked   : ");
+                if(Booked==true) 
+                    System.out.println(CustName+"; "+Address+"; "+Phone); 
+                else
+                    System.out.println("No");
+            }
+        
+            public static int getFlatsCount()
+            {
+                return Count;
+            }
+        
+            public boolean getFlatBookingInfo()
+            {
+                return Booked;
+            }
+        
+            public void saveCustInfo(String stCN, String stAddr, String stP, int intRA, int intSD)
+            {
+                CustName    = stCN;
+                Address     = stAddr;
+                Phone       = stP;
+                RegAmt      = intRA;
+                StampDuty   = intSD;
+                Booked      = true;
+            }
+        }
+        //--------- End of class: Flats ------------------------------------------------------------------------
+        class Bungalows
+        {
+            private String City;        //City name
+            private String SiteAddr;    //Location or Site Address in the city
+            private String BldgName;   //Building/scheme name 
+            private String BungalowNumber;  //Bungalow number in the building
+            private String Bhk;
+            private String Toilet;      //No.of Toilets
+            private String Bathroom;    //No.of Bathrooms
+            private String Gallery;     //No.of gallery
+            private String Parking;     //Common + individual parking
+            private int Area;           //Built-up area
+            private int Rate;           //Rate Rupees per Square foot
+            private boolean Booked;     //Whether Bungalow is booked
+            private String CustName;
+            private String Address;
+            private String Phone;
+            private int RegAmt;
+            private int StampDuty;
+            private static int Count;   //No.of Bungalows created
+        
+            public Bungalows()  //Default or Non-parameterized constructor
+            {
+                City        = null;
+                SiteAddr    = null;
+                BldgName    = null;
+                BungalowNumber  = null;
+                Bhk         = null;
+                Toilet      = null;
+                Bathroom    = null;
+                Gallery     = null;
+                Parking     = null;
+                Area        = 0;
+                Rate        = 0;
+                Booked      = false;
+                CustName    = null;
+                Address     = null;
+                Phone       = null;
+                RegAmt      = 0;
+                StampDuty   = 0;
+                Count       = Count + 1;
+            }
+        
+            public Bungalows(String stC, String stSA, String stBN, String stBNo, String stBhk, String stT, String stB, String stG, String stP, int intA, int intR)
+            {
+                City            = stC;
+                SiteAddr        = stSA;
+                BldgName        = stBN;
+                BungalowNumber  = stBNo;
+                Bhk             = stBhk;
+                Toilet          = stT;
+                Bathroom        = stB;
+                Gallery         = stG;
+                Parking         = stP;
+                Area            = intA;
+                Rate            = intR;
+                Booked          = false;
+                CustName        = null;
+                Address         = null;
+                Phone           = null;
+                RegAmt          = 0;
+                StampDuty       = 0;
+                Count           = Count + 1;        
+            }
+        
+            public void ShowBungalow()
+            {
+                Formatter fmt = new Formatter();
+                System.out.println("City          : " + City);
+                System.out.println("Site Address  : " + SiteAddr);
+                System.out.println("Building Name : " + BldgName);
+                System.out.println("Bungalow Number   : " + BungalowNumber);
+                System.out.println("Parking       : " + Parking);
+                System.out.println("Carpet Area   : " + Area);
+                System.out.println("Rate Rs./Sq.Ft: " + Rate);
+                System.out.println("Cost of Bungalow:Rs " + fmt.format("%,.2f", (float)(Area*Rate)));
+                System.out.print("Bungalow Booked   : ");
+                if(Booked==true) 
+                    System.out.println(CustName+"; "+Address+"; "+Phone); 
+                else
+                    System.out.println("No");
+            }
+        
+            public static int getBungalowsCount()
+            {
+                return Count;
+            }
+        
+            public boolean getBungalowBookingInfo()
+            {
+                return Booked;
+            }
+        
+            public void saveCustInfo(String stCN, String stAddr, String stP, int intRA, int intSD)
+            {
+                CustName    = stCN;
+                Address     = stAddr;
+                Phone       = stP;
+                RegAmt      = intRA;
+                StampDuty   = intSD;
+                Booked      = true;
+            }
+        }
+        
+        //--------------end of class bungalow---------------
+        class Shops
+        {
+            private String City;        //City name
+            private String SiteAddr;    //Location or Site Address in the city
+            private String CName;       //Complex \scheme name 
+            private String ShopNumber;  //Shop number in the building
+            private int Area;           //Built-up area
+            private int Rate;           //Rate Rupees per Square foot
+            private boolean Booked;     //Whether Shop is booked
+            private String CustName;
+            private String Address;
+            private String Phone;
+            private int RegAmt;
+            private int StampDuty;
+            private static int Count;   //No.of Shops created
+        
+            public Shops()  //Default or Non-parameterized constructor
+            {
+                City        = null;
+                SiteAddr    = null;
+                CName       = null;
+                ShopNumber  = null;
+                Area        = 0;
+                Rate        = 0;
+                Booked      = false;
+                CustName    = null;
+                Address     = null;
+                Phone       = null;
+                RegAmt      = 0;
+                StampDuty   = 0;
+                Count       = Count + 1;
+            }
+        
+            public Shops(String stC, String stSA, String stCN, String stSN, int intA, int intR)
+            {
+                City        = stC;
+                SiteAddr    = stSA;
+                CName       = stCN;
+                ShopNumber  = stSN;
+                Area        = intA;
+                Rate        = intR;
+                Booked      = false;
+                CustName    = null;
+                Address     = null;
+                Phone       = null;
+                RegAmt      = 0;
+                StampDuty   = 0;
+                Count       = Count + 1;        
+            }
+        
+            public void ShowShop()
+            {
+                Formatter fmt = new Formatter();
+                System.out.println("City:\t\t" + City);
+                System.out.println("Site:\t\t" + SiteAddr);
+                System.out.println("Complex Name:\t" + CName);
+                System.out.println("Shop Number:\t" + ShopNumber);
+                System.out.println("Carpet Area:\t" + Area);
+                System.out.println("Rate Rs./Sq.Ft:\t" + Rate);
+                System.out.println("Cost of Shop:Rs " + fmt.format("%,.2f", (float)(Area*Rate)));
+                System.out.print("Shop Booked:\t");
+                if(Booked==true) 
+                    System.out.println(CustName +"; "+Address+"; "+Phone); 
+                else
+                    System.out.println(" No ");
+            }
+        
+            public static int getShopsCount()
+            {
+                return Count;
+            }
+        
+            public boolean getShopBookingInfo()
+            {
+                return Booked;
+            }
+            
+            public void saveCustInfo(String stCN, String stAddr, String stP, int intRA, int intSD)
+            {
+                CustName    = stCN;
+                Address     = stAddr;
+                Phone       = stP;
+                RegAmt      = intRA;
+                StampDuty   = intSD;
+                Booked      = true;
+            }
+        }
+        
+        class Lands
+        {
+            private String City;        //City name
+            private String SiteAddr;    //Location or Site Address in the city
+            private String SocName;   //Society /scheme name 
+            private String LandNumber;  //Land number in the building
+            private int Area;           //Built-up area
+            private int Rate;           //Rate Rupees per Square foot
+            private boolean Booked;     //Whether Land is booked
+            private String CustName;
+            private String Address;
+            private String Phone;
+            private int RegAmt;
+            private int StampDuty;
+            private static int Count;   //No.of Lands created
+        
+            public Lands()  //Default or Non-parameterized constructor
+            {
+                City        = null;
+                SiteAddr    = null;
+                SocName    = null;
+                LandNumber  = null;
+                Area        = 0;
+                Rate        = 0;
+                Booked      = false;
+                CustName    = null;
+                Address     = null;
+                Phone       = null;
+                RegAmt      = 0;
+                StampDuty   = 0;
+                Count       = Count + 1;
+            }
+        
+            public Lands(String stC, String stSA, String stSN,String stLN, int intA, int intR)
+            {
+                City        = stC;
+                SiteAddr    = stSA;
+                SocName    = stSN;
+                LandNumber  = stLN;
+                Area        = intA;
+                Rate        = intR;
+                Booked      = false;
+                CustName    = null;
+                Address     = null;
+                Phone       = null;
+                RegAmt      = 0;
+                StampDuty   = 0;
+                Count       = Count + 1;        
+            }
+        
+            public void ShowLand()
+            {
+                Formatter fmt = new Formatter();
+                System.out.println("City:\t\t" + City);
+                System.out.println("Site:\t\t" + SiteAddr);
+                System.out.println("Society  Name:\t" + SocName);
+                System.out.println("Land Number:\t" + LandNumber);
+        
+                System.out.println("Carpet Area:\t" + Area);
+                System.out.println("Rate Rs./Sq.Ft:\t" + Rate);
+                System.out.println("Cost of Land:Rs " + fmt.format("%,.2f", (float)(Area*Rate)));
+                System.out.print("Land Booked:\t");
+                if(Booked==true) 
+                    System.out.println(CustName+"; "+Address+"; "+Phone); 
+                else
+                    System.out.println("No");
+            }
+        
+            public static int getLandsCount()
+            {
+                return Count;
+            }
+        
+            public boolean getLandBookingInfo()
+            {
+                return Booked;
+            }
+            
+            public void saveCustInfo(String stCN, String stAddr, String stP, int intRA, int intSD)
+            {
+                CustName    = stCN;
+                Address     = stAddr;
+                Phone       = stP;
+                RegAmt      = intRA;
+                StampDuty   = intSD;
+                Booked      = true;
+            }
+        }
+        //------------------------------------- End of class: Lands --------------------------------------------------
+        
+        
+        
+        
+        //-----------------------------Starting of Class Real Eastate ------------------------------------------------
+        public class REAL_EASTATE
+        {
+            InputStreamReader isr = new InputStreamReader(System.in);
+            BufferedReader br = new BufferedReader (isr);
+        
+            int MAXFLATS=30;
+            int MAXBUNGALOWS=15;
+            int MAXLANDS=10; 
+            int MAXSHOPS=40;
+        
+            Flats FLATS[] = new Flats[30];
+            Bungalows BUNGALOWS[] = new Bungalows[15];
+            Shops SHOPS[] = new Shops[40];
+            Lands LANDS[] = new Lands[10];
+        
+            public void main()throws IOException
+            {
+        
+                    
+                int ch = 0;    // to accept the user's choise
+        
+                System.out.println();
+        
+                System.out.println("\t \t* *** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **  * *");
+                System.out.println("\t \t* *** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **  * *");
+                System.out.println("\t \t* *                                                                      * *");
+                System.out.println("\t \t* *                                                                      * *");
+                System.out.println("\t \t* *                     Real-Estate Co.Pvt.Ltd.                          * *");
+                System.out.println("\t \t* *          ** -------------------------------------------- **          * *");
+                System.out.println("\t \t* *                                                                      * *");
+                System.out.println("\t \t* *                   Property Sale and business                         * *");
+                System.out.println("\t \t* *                                                                      * *");
+                System.out.println("\t \t* *                                                                      * *");
+                System.out.println("\t \t* *** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **  * *");
+                System.out.println("\t \t* *** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **  * *");
+        
+                
+                System.out.println("\n\n");
+                
+                LoadFlatsInfo();
+                LoadBungalowsInfo();
+                LoadShopsInfo();
+                LoadLandsInfo();
+        
+                while(true)
+                {
+                    do
+                    {
+                        System.out.println( "\t **********  Login Menu  **********\n");
+                        System.out.println("    1 Administrator");
+                        System.out.println("    2 Customer");
+                        System.out.println("    3 About Us");
+                        System.out.println("    4 Exit \n");
+                        
+                        try
+                        {   
+                            System.out.print("Enter your choice? ");
+                            ch = Integer.parseInt(br.readLine());
+                        }
+                        catch(NumberFormatException e)
+                        {
+                            System.out.println("******************************");
+                            System.out.println(" please enter numeric value only");
+                            System.out.println("******************************");
+                        }
+                    }while(ch < 1 || ch > 4);
+        
+                    if(ch == 4) 
+                    {
+                        System.out.println("Good bye. Program terminated successfully.");
+                        System.exit(0);
+                    }
+        
+                    if(ch == 1) 
+                        AdminMenu();
+                    else if(ch==2)       
+                        CustomerMenu();
+                    else
+                        AboutUs();
+                }
+       }   
+            // **********************************************END OF MAIN **************************************************
+            
+            
+            
+        
+            //--------------------------------------- Starting of Administrator function---------------------------------------
+            void AdminMenu() throws IOException
+            {
+                InputStreamReader isr = new InputStreamReader(System.in);
+            BufferedReader br = new BufferedReader (isr);
+        
+                int ch = 0;
+                String pass ="realestate";
+                
+                System.out.println("For administrator , please enter the password");
+                System.out.println("This is for the security ");
+                String password = br.readLine();
+                
+                while(pass.compareTo(password) == 0)
+                {
+                while(true)
+                {
+        
+                    do
+                    {
+                        System.out.println( "\t ********** Admin Menu *********\n");
+                        System.out.println();
+                        System.out.println(" 1 Add New Flat Information");
+                        System.out.println(" 2 Add New Bungalow Information");
+                        System.out.println(" 3 Add New land Information");
+                        System.out.println(" 4 Add New  shop Information");
+                        System.out.println();
+                        System.out.println(" 5 Show Flats Information.");
+                        System.out.println(" 6 Show Bungalows Information.");
+                        System.out.println(" 7 Show land Information.");
+                        System.out.println(" 6 Show shop Information.");
+                        System.out.println(" 9 Return To Login Menu.");
+                        System.out.println();
+                        try
+                        {
+                            System.out.print("Enter your choice? ");
+                            ch = Integer.parseInt(br.readLine());
+                        }
+                        catch(NumberFormatException e)
+                        {
+                            System.out.println("******************************");
+                            System.out.println("Number between 1 to 9 expected.");
+                            System.out.println("******************************");
+                        }
+                    }while(ch < 1 || ch > 9);
+        
+                    switch(ch)
+                    {
+                        case 1: AddNewFlatInfo();
+                        break;
+                        case 2: AddNewBungalowInfo();
+                        break;
+                        case 3: AddNewLandInfo();
+                        break;
+                        case 4: AddNewShopInfo();
+                        break;
+        
+                        case 5: ShowAllFlatsInfo();
+                        break;
+                        case 6: ShowAllBungalowsInfo();
+                        break;
+                        case 7: ShowAllLandsInfo();
+                        break;
+                        case 8: ShowAllShopsInfo();
+                        break;
+        
+                        case 9: return;
+                    }
+                }
+            }
+            if(pass.compareTo(password) != 0)
+            {
+                System.out.println(" ***************************************************************");
+                System.out.println(" **    Password Mismatched , Please enter correct password   **");
+                System.out.println(" ***************************************************************");
+            }
+       }
+        
+            //end of admin function
+            
+            
+            
+        
+            //starting of custumer function
+            void CustomerMenu() throws IOException
+            {
+                int ch =0;
+                while(true)
+                {
+                    do
+                    {
+                        System.out.println( "\t \t******  Customer Menu   ****** \t");
+                        System.out.println(" 1 Show Flats Information.");
+                        System.out.println(" 2 Show Bungalows Information.");
+                        System.out.println(" 3 Show Land Information.");
+                        System.out.println(" 4 Show Shop Information.");
+        
+                        System.out.println();
+                        System.out.println(" \t \t *** Booking optiobns  ***");
+        
+                        System.out.println(" 5 Book a Flat.");
+                        System.out.println(" 6 book Bungalows Information.");
+                        System.out.println(" 7 book Land Information.");
+                        System.out.println(" 8 book Shop Information.");
+                        System.out.println(" 9 Return To Login Menu.");
+        
+                        System.out.println();
+                        try
+                        {
+                            System.out.print("Enter your choice? ");
+                            ch = Integer.parseInt(br.readLine());
+                        }
+                        catch(NumberFormatException e)
+                        {
+                            System.out.println("******************************");
+                            System.out.println( "please Enter numeric value only ");
+                            System.out.println("******************************");
+                        }
+                    }while(ch < 1 || ch > 10);
+        
+                    switch(ch)
+                    {
+                        case 1: ShowAllFlatsInfo();
+                        break;
+                        case 2: ShowAllBungalowsInfo();
+                        break;
+                        case 3: ShowAllLandsInfo();
+                        break;
+                        case 4: ShowAllShopsInfo();
+                        break;
+        
+                        case 5: BookFlat();
+                        break;
+                        case 6: BookBungalow();
+                        break;
+                        case 7: BookLand();
+                        break;
+                        case 8: BookShop();
+                        break;
+        
+                        case 9: return;
+                    }
+                }
+       }
+            //---------------------------------End of Custumer function-------------------------------------
+            
+            
+            
+            
+            //--------------------------------- Starting of  About Us Function -------------------------------------
+            void AboutUs()
+            {
+                System.out.println(" *************   W E L C O M E ***********");
+                System.out.println();
+                System.out.println();
+                System.out.println(" Company : - REAL-ESTATE Co.Pvt.Ltd ");
+                System.out.println();
+                System.out.println(" Business :- Property Sale ");
+                System.out.println();
+                System.out.println(" Founder:- Atharva Kale and Sagar Patil ");
+                System.out.println();
+                System.out.println(" Offices:- Pune , Mumbai , Nashik ");
+                System.out.println();
+                System.out.println(" Phone Number :- 8308309388 , 7350530424 ");
+                System.out.println();
+                System.out.println(" Email :- realeastate@gmail.com and realeastate@outlook.com ");
+                System.out.println();
+                System.out.println(" Best Property Deals avaible HERE! ");
+                System.out.println();
+                System.out.println(" All types of property Sold :-Flats ,Bungalows, Shops , Lands (Plots)");
+                System.out.println();
+                
+       }
+            
+        
+            void LoadFlatsInfo()
+            {
+                FLATS[0]=new Flats("Baramati", "Jalochi", "Vishakha Apartment", "A-1", "3", "1", "1", "No", "Common Parking only", 1000, 2500);
+                FLATS[1]=new Flats("Pune", "Kondhava", "Akshay Apartment", "B-3", "1", "2", "1", "No", "Private 4 wheeter Parking + Common Parking", 800, 4000);
+                FLATS[2]=new Flats("Nagpur", "Sadar Bazar", "Vihar Apartment", "C-5", "4", "1", "1", "No", "Common Parking only", 1200, 3500);
+            }
+            //End of Function: LoadFlatsInfo
+        
+            void ShowOneFlatInfo(int i)
+            {
+                System.out.println("------- Information about Flat: " + (i+1) + "---------------");
+                FLATS[i].ShowFlat();   
+                System.out.println("******* End of Information about Flat: " + (i+1) + "********\n");
+       }
+        
+            void ShowAllFlatsInfo() throws IOException
+            {
+                int i,n;
+                n=Flats.getFlatsCount();
+                System.out.print("Enter Flat index Number or 0 for ALL flats: ");
+                i = Integer.parseInt(br.readLine());
+        
+                if(i<0 || i>n)
+                {
+                    System.out.println("Incorrect index number entered.");
+                    return;
+                }
+        
+                if(i == 0)
+                {
+                    for(i=0; i<n; i++)
+                    {
+                        ShowOneFlatInfo(i);   
+                    }        
+                }
+                else
+                {
+                    ShowOneFlatInfo(i-1);   
+                }
+       }
+        
+            void AddNewFlatInfo() throws IOException //to add new flats
+            {
+                int n , intA = 0 , intR = 0 ;
+                n=Flats.getFlatsCount();
+        
+                try
+                {
+                    if(n<MAXFLATS)
+                    {
+                        System.out.println("Enter Information for New Flat: " + n);
+                    }
+                    else
+                    {
+                        System.out.println("Maximum No.of flats exhausted.");
+                        return;
+                    }
+                    System.out.print("Enter City Name: ");
+                    String stC = br.readLine();
+        
+                    System.out.print("Enter Site Address: ");
+                    String stSA = br.readLine();
+        
+                    System.out.print("Enter Building Name: ");
+                    String stBN = br.readLine();
+        
+                    System.out.print("Enter FlatNumber: ");
+                    String stFN = br.readLine();
+        
+                    System.out.print("Enter BHK: ");
+                    String stBhk = br.readLine();
+        
+                    System.out.print("Enter No.of Toilet: ");
+                    String stT =br.readLine();
+        
+                    System.out.print("Enter No.of Bathroom: ");
+                    String stB =br.readLine();
+        
+                    System.out.print("Enter No.of Gallery: ");
+                    String stG =br.readLine();
+        
+                    System.out.print("Enter Parking Description: ");
+                    String stP =br.readLine();
+                    try
+                    {
+                        System.out.print("Enter Carpet Area(Sq.Ft): ");
+                        intA = Integer.parseInt(br.readLine());
+            
+                        System.out.print("Enter Rate (Rs/SqFt): ");
+                        intR = Integer.parseInt(br.readLine());
+                    }
+                    catch(NumberFormatException e)
+                    {
+                        System.out.println("******************************");
+                        System.out.println(" Numeric value excepted");
+                        System.out.println("******************************");
+                    }
+                
+        
+                    FLATS[n]=new Flats(stC, stSA, stBN, stFN, stBhk, stT, stB, stG, stP, intA, intR);
+                }
+                catch(ArrayIndexOutOfBoundsException e)
+                {
+                    System.out.println("******************************");
+                    System.out.println(" Flat no shoulb be less tan 30");
+                    System.out.println("******************************");
+                }
+       }
+        
+            void BookFlat()throws IOException
+            {
+                int i, n , intRA = 0 , intSD = 0 ;
+                n=Flats.getFlatsCount();
+                try
+                {
+                    System.out.print("Enter Flat Sr.No to mark Booking: ");
+                    i = Integer.parseInt(br.readLine());
+                    i=i-1;
+        
+                    if(i<0 || i>=n)
+                    {
+                        System.out.println("Incorrect Flat Sr.No. entered. Repeat again.");
+                        return;
+                    }
+                    if(FLATS[i].getFlatBookingInfo()==true)
+                    {
+                        System.out.println("Sorry. Flat already booked. Try another.");            
+                    }
+        
+                    ShowOneFlatInfo(i);
+        
+                    System.out.print("Enter Customer Name   : ");
+                    String stCN = br.readLine();
+        
+                    System.out.print("Enter Customer Address: ");
+                    String stAddr=br.readLine();
+        
+                    System.out.print("Enter Customer Phone  : ");
+                    String stP = br.readLine();
+                    try
+                        {
+                            System.out.print("Enter Registration Amount: ");
+                            intRA = Integer.parseInt(br.readLine());
+                
+                            System.out.print("Enter Stamp Duty Amount: ");
+                            intSD = Integer.parseInt(br.readLine());
+                        }
+                        catch(NumberFormatException e)
+                        {
+                        System.out.println("******************************");
+                        System.out.println(" Numeric value Expected");
+                        System.out.println("******************************");
+                    }
+        
+                    FLATS[i].saveCustInfo(stCN, stAddr, stP, intRA, intSD);
+                }
+                catch(NumberFormatException e)
+                {
+                    System.out.println("Enter integer number only: ");
+                    return;
+                }
+        
+                
+       }
+            // --------------------------------End of flats section -------------------------------------
+            
+            
+            
+            
+            //--------------------------------Startin g of Bungalow Section -----------------------------
+            void LoadBungalowsInfo()
+            {
+                //(String stC, String stSA,  String stBhk, String stT, String stB, String stG, String stP, int intA, int intR)        
+                BUNGALOWS[0]=new Bungalows("Baramati", "Jalochi", "Vishakha Apartment", "A-1", "3", "1", "1", "No", "Common Parking only", 1000, 2500);
+                BUNGALOWS[1]=new Bungalows("Pune", "Kondhava", "Akshay Apartment", "B-3", "1", "2", "1", "No", "Private 4 wheeter Parking + Common Parking", 800, 4000);
+                BUNGALOWS[2]=new Bungalows("Nagpur", "Sadar Bazar", "Vihar Apartment", "C-5", "4", "1", "1", "No", "Common Parking only", 1200, 3500);
+       }
+            //End of Function: LoadBungalowsInfo
+        
+            void ShowOneBungalowInfo(int i)
+            {
+                System.out.println("------- Information about Bungalow: " + (i+1) + "---------------");
+                BUNGALOWS[i].ShowBungalow();   
+                System.out.println("******* End of Information about Bungalow: " + (i+1) + "********\n");
+       }
+        
+            void ShowAllBungalowsInfo() throws IOException
+            {
+                int i,n;
+                n=Bungalows.getBungalowsCount();
+                System.out.print("Enter Bungalow index Number or 0 for ALL Bungalows: ");
+                i = Integer.parseInt(br.readLine());
+        
+                if(i<0 || i>n)
+                {
+                    System.out.println("Incorrect index number entered.");
+                    return;
+                }
+        
+                if(i == 0)
+                {
+                    for(i=0; i<n; i++)
+                    {
+                        ShowOneBungalowInfo(i);   
+                    }        
+                }
+                else
+                {
+                    ShowOneBungalowInfo(i-1);   
+                }
+       }
+        
+            void AddNewBungalowInfo() throws IOException //to add new Bungalows
+            {
+                int n , intA = 0 , intR = 0;
+                n=Bungalows.getBungalowsCount();
+        
+                try
+                {
+                    if(n< MAXBUNGALOWS)
+                    {
+                        System.out.println("Enter Information for New Bungalow: " + n);
+                    }
+                    else
+                    {
+                        System.out.println("Maximum No.of Bungalows exhausted.");
+                        return;
+                    }
+                    System.out.print("Enter City Name: ");
+                    String stC = br.readLine();
+        
+                    System.out.print("Enter Site Address: ");
+                    String stSA = br.readLine();
+        
+                    System.out.print("Enter Building Name: ");
+                    String stBN = br.readLine();
+        
+                    System.out.print("Enter BungalowNumber: ");
+                    String stBNo = br.readLine();
+        
+                    System.out.print("Enter BHK: ");
+                    String stBhk = br.readLine();
+        
+                    System.out.print("Enter No.of Toilet: ");
+                    String stT =br.readLine();
+        
+                    System.out.print("Enter No.of Bathroom: ");
+                    String stB =br.readLine();
+        
+                    System.out.print("Enter No.of Gallery: ");
+                    String stG =br.readLine();
+        
+                    System.out.print("Enter Parking Description: ");
+                    String stP =br.readLine();
+                    try
+                    {
+                        System.out.print("Enter Carpet Area(Sq.Ft): ");
+                        intA = Integer.parseInt(br.readLine());
+            
+                        System.out.print("Enter Rate (Rs/SqFt): ");
+                        intR = Integer.parseInt(br.readLine());
+                    }
+                    catch(NumberFormatException e)
+                    {
+                        System.out.println("******************************");
+                        System.out.println(" Numeric value expted");
+                        System.out.println("******************************");
+                    }
+        
+                    BUNGALOWS[n]=new Bungalows( stC,  stSA, stBN, stBNo,  stBhk, stT, stB,  stG,  stP, intA,  intR);
+                }
+                catch(ArrayIndexOutOfBoundsException e)
+                {
+                    System.out.println("******************************");
+                    System.out.println(" Bungalow no shoulb be less tan 30");
+                    System.out.println("******************************");
+                }
+       }
+        
+            void BookBungalow()throws IOException
+            {
+                int i, n , intRA=0 , intSD=0 ;
+                n=Bungalows.getBungalowsCount();
+                try
+                {
+                    System.out.print("Enter Bungalow Sr.No to mark Booking: ");
+                    i = Integer.parseInt(br.readLine());
+                    i=i-1;
+        
+                    if(i<0 || i>=n)
+                    {
+                        System.out.println("Incorrect Bungalow Sr.No. entered. Repeat again.");
+                        return;
+                    }
+                    if(BUNGALOWS[i].getBungalowBookingInfo()==true)
+                    {
+                        System.out.println("Sorry. Bungalow already booked. Try another.");            
+                    }
+        
+                    ShowOneBungalowInfo(i);
+        
+                    System.out.print("Enter Customer Name   : ");
+                    String stCN = br.readLine();
+        
+                    System.out.print("Enter Customer Address: ");
+                    String stAddr=br.readLine();
+        
+                    System.out.print("Enter Customer Phone  : ");
+                    String stP = br.readLine();
+                    try
+                    {
+                        System.out.print("Enter Registration Amount: ");
+                        intRA = Integer.parseInt(br.readLine());
+        
+                        System.out.print("Enter Stamp Duty Amount: ");
+                        intSD = Integer.parseInt(br.readLine());
+                    }
+                    catch(NumberFormatException e)
+                    {
+                        System.out.println("******************************");
+                        System.out.println(" Numeric value expected");
+                        System.out.println("******************************");
+                    }
+        
+                    BUNGALOWS[i].saveCustInfo(stCN, stAddr, stP, intRA, intSD);
+                }
+                catch(NumberFormatException e)
+                {
+                    System.out.println("Enter integer number only: ");
+                    return;
+                }
+        
+                
+       }
+            // -----------------------------End of bungalow section ------------------------
+        
+            
+            
+            
+            //------------------------------Starting of  shops section ---------------------
+                void LoadShopsInfo()
+            {
+               
+                SHOPS[0]=new Shops("Baramati","Jalochi","Vishakha Complex","12", 1000, 2500);
+                SHOPS[1]=new Shops("Pune", "Kondhava", "Akshay Complex", "5", 800, 4000);
+                SHOPS[2]=new Shops("Nagpur", "Sadar Bazar", "Dhole Complex", "20", 1200, 3500);
+       }
+            //End of Function: LoadShopsInfo
+        
+            void ShowOneShopInfo(int i)
+            {
+                System.out.println("------- Information about Shop: " + (i+1) + "---------------");
+                SHOPS[i].ShowShop();   
+                System.out.println("******* End of Information about Shop: " + (i+1) + "********\n");
+        }
+        
+            void ShowAllShopsInfo() throws IOException
+            {
+                int i,n;
+                n=Shops.getShopsCount();
+                System.out.print("Enter Shop index Number or 0 for ALL Shops: ");
+                i = Integer.parseInt(br.readLine());
+        
+                if(i<0 || i>n)
+                {
+                    System.out.println("Incorrect index number entered.");
+                    return;
+                }
+        
+                if(i == 0)
+                {
+                    for(i=0; i<n; i++)
+                    {
+                        ShowOneShopInfo(i);   
+                    }        
+                }
+                else
+                {
+                    ShowOneShopInfo(i-1);   
+                }
+        }
+        
+            void AddNewShopInfo() throws IOException //to add new Shops
+            {
+                int n , intA = 0 , intR = 0 ;
+                n=Shops.getShopsCount();
+        
+                try
+                {
+                    if(n<MAXSHOPS)
+                    {
+                        System.out.println("Enter Information for New Shop: " + n);
+                    }
+                    else
+                    {
+                        System.out.println("Maximum No.of Shops exhausted.");
+                        return;
+                    }
+                    System.out.print("Enter City Name: ");
+                    String stC = br.readLine();
+        
+                    System.out.print("Enter Site Address: ");
+                    String stSA = br.readLine();
+        
+                    System.out.print("Enter Complex Name: ");
+                    String stCN = br.readLine();
+        
+                    System.out.print("Enter Shop Number: ");
+                    String stSN = br.readLine();
+                    try
+                    {
+                        System.out.print("Enter Carpet Area(Sq.Ft): ");
+                        intA = Integer.parseInt(br.readLine());
+            
+                        System.out.print("Enter Rate (Rs/SqFt): ");
+                        intR = Integer.parseInt(br.readLine());
+                    }   
+                    catch(NumberFormatException e)
+                    {
+                        System.out.println("******************************");
+                        System.out.println(" Numeric value excepted ");
+                        System.out.println("******************************");
+                    
+                    }
+        
+                    SHOPS[n]=new Shops(stC, stSA, stCN, stSN, intA, intR);
+                }
+                catch(ArrayIndexOutOfBoundsException e)
+                {
+                    System.out.println("******************************");
+                    System.out.println(" Shop no shoulb be less tan 40");
+                    System.out.println("******************************");
+                }
+        }
+        
+            void BookShop()throws IOException
+            {
+                int i, n , intRA=0 , intSD=0 ;
+                n=Shops.getShopsCount();
+                try
+                {
+                    System.out.print("Enter Shop Sr.No to mark Booking: ");
+                    i = Integer.parseInt(br.readLine());
+                    i=i-1;
+        
+                    if(i<0 || i>=n)
+                    {
+                        System.out.println("Incorrect Shop Sr.No. entered. Repeat again.");
+                        return;
+                    }
+                    if(SHOPS[i].getShopBookingInfo()==true)
+                    {
+                        System.out.println("Sorry. Shop already booked. Try another.");            
+                    }
+        
+                    ShowOneShopInfo(i);
+        
+                    System.out.print("Enter Customer Name   : ");
+                    String stCN = br.readLine();
+        
+                    System.out.print("Enter Customer Address: ");
+                    String stAddr=br.readLine();
+                    
+                    System.out.print("Enter Customer Phone  : ");
+                    String stPhone =br.readLine();
+                        try
+                        {
+                            System.out.print("Enter Registration Amount: ");
+                            intRA = Integer.parseInt(br.readLine());
+        
+                            System.out.print("Enter Stamp Duty Amount: ");
+                            intSD = Integer.parseInt(br.readLine());
+                        }
+                        catch(NumberFormatException e)
+                        {
+                            System.out.println(" Enter numeric value only ");
+                        }
+                        SHOPS[i].saveCustInfo(stCN, stAddr, stPhone, intRA, intSD);
+                    }
+                    catch(NumberFormatException e)
+                    {
+                        System.out.println("Enter integer number only: ");
+                        return;
+                    }
+        }
+            //------------------------------- End Of Shops Section -----------------------------    
+                
+                
+                
+            //-------------------------------Starting of Land Section ---------------------------    
+            void LoadLandsInfo()
+                {
+                
+                {                    
+                    LANDS[0]=new Lands("Baramati", "Jalochi", "Vishakha Society " , "12" , 1000, 2500);
+                    LANDS[1]=new Lands("Pune", "Kondhava", "Akshay Park", "34", 800, 4000);
+                    LANDS[2]=new Lands("Nagpur", "Sadar Bazar", "Vihar City", "14", 1200, 3500);
+                }
+        }
+            //End of Function: LoadLandsInfo
+            
+            
+        
+                void ShowOneLandInfo(int i)
+                {
+                System.out.println("------- Information about Land: " + (i+1) + "---------------");
+                LANDS[i].ShowLand();   
+                System.out.println("******* End of Information about Land: " + (i+1) + "********\n");
+        }
+        
+            void ShowAllLandsInfo() throws IOException
+            {
+                int i,n;
+                n=Lands.getLandsCount();
+                System.out.print("Enter Land index Number or 0 for ALL Lands: ");
+                i = Integer.parseInt(br.readLine());
+        
+                if(i<0 || i>n)
+                {
+                    System.out.println("Incorrect index number entered.");
+                    return;
+                }
+        
+                if(i == 0)
+                {
+                    for(i=0; i<n; i++)
+                    {
+                        ShowOneLandInfo(i);   
+                    }        
+                }
+                else
+                {
+                    ShowOneLandInfo(i-1);   
+                }
+        }
+        
+            void AddNewLandInfo() throws IOException //to add new Lands
+            {
+                int n;
+                n=Lands.getLandsCount();
+                int intA = 0 , intR=0;
+        
+                try
+                {
+                    if(n<MAXLANDS)
+                    {
+                        System.out.println("Enter Information for New Land: " + n);
+                    }
+                    else
+                    {
+                        System.out.println("Maximum No.of Lands exhausted.");
+                        return;
+                    }
+                    System.out.print("Enter City Name    : ");
+                    String stC = br.readLine();
+        
+                    System.out.print("Enter Site Address : ");
+                    String stSA = br.readLine();
+        
+                    System.out.print("Enter Society  Name: ");
+                    String stSN = br.readLine();
+        
+                    System.out.print("Enter LandNumber   : ");
+                    String stLN = br.readLine();
+                    try
+                    {
+                        System.out.print("Enter Carpet Area(Sq.Ft): ");
+                        intA = Integer.parseInt(br.readLine());
+        
+                        System.out.print("Enter Rate (Rs/SqFt): ");
+                        intR = Integer.parseInt(br.readLine());
+                    }
+                    catch(NumberFormatException e)
+                    {
+                        System.out.println("******************************");
+                        System.out.println(" Numeric value expected ");
+                        System.out.println("******************************");
+                    }
+                
+                    LANDS[n]=new Lands(stC, stSA, stSN, stLN, intA, intR);
+                }
+                catch(ArrayIndexOutOfBoundsException e)
+                {
+                    System.out.println("******************************");
+                    System.out.println(" Land no shoulb be less tan 10");
+                    System.out.println("******************************");
+                }
+        }
+        
+            void BookLand()throws IOException
+            {
+                int i, n, intRA = 0 , intSD=0;
+                n=Lands.getLandsCount();
+                try
+                {
+                    System.out.print("Enter Land Sr.No to mark Booking: ");
+                    i = Integer.parseInt(br.readLine());
+                    i=i-1;
+        
+                    if(i<0 || i>=n)
+                    {
+                        System.out.println("Incorrect Land Sr.No. entered. Repeat again.");
+                        return;
+                    }
+                    if(LANDS[i].getLandBookingInfo()==true)
+                    {
+                        System.out.println("Sorry. Land already booked. Try another.");            
+                    }
+        
+                    ShowOneLandInfo(i);
+        
+                    System.out.print("Enter Customer Name   : ");
+                    String stCN = br.readLine();
+        
+                    System.out.print("Enter Customer Address: ");
+                    String stAddr=br.readLine();
+                    
+                    System.out.print("Enter Customer Phone  : ");
+                     String stPhone = br.readLine();
+                    try
+                    {
+                        System.out.print("Enter Regeristration amount ");
+                        intRA = Integer.parseInt(br.readLine());
+        
+                        System.out.print("Enter Stamp Duty ");
+                        intSD = Integer.parseInt(br.readLine());
+                    }
+                    catch(NumberFormatException e)
+                    {
+                        System.out.println("******************************");
+                        System.out.println(" Numeric value expected ");
+                        System.out.println("******************************");
+                        
+                    }
+                
+                LANDS[i].saveCustInfo(stCN, stAddr, stPhone, intRA, intSD);
+            }
+                catch(NumberFormatException e)
+                {
+                    System.out.println("Enter integer number only: ");
+                    return;
+                }
+        
+        }
+}//End of class: REAL_ESTSTE
+
